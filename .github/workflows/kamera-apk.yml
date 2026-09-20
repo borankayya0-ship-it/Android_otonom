@@ -21,6 +21,13 @@ jobs:
         mkdir -p app/src/main/java/com/borankayya/kamera
         mkdir -p app/src/main/res/values
 
+        # gradle.properties (Hatanın çözüldüğü yer - AndroidX aktif ediliyor)
+        cat << 'EOF' > gradle.properties
+        org.gradle.jvmargs=-Xmx2048m -Dfile.encoding=UTF-8
+        android.useAndroidX=true
+        android.enableJetifier=true
+        EOF
+
         # Android Manifest Dosyası (Kamera İzinleri)
         cat << 'EOF' > app/src/main/AndroidManifest.xml
         <?xml version="1.0" encoding="utf-8"?>
